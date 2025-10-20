@@ -133,22 +133,77 @@ void add_goat(list<Goat>& trip, string names[], string colors[])
 */
 void delete_goat(list<Goat> &trip)
 {
+    // Create variables to get the user's choices
+    int choice = select_goat(trip);
+    char c;
+
+    // Display confirmation message
+    cout << "Are you sure? (Y/N): ";
+    cin >> c;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (toupper(c) != 'Y' && toupper(c) != 'N')
+    {
+        // Display an error message
+        cout << "--- Invalid! Please enter a valid choice (Y/N): ";
+        cin >> c;
+        cin.ignore(1000, 10);
+    }
+
+    // If user no longer wants to delete the Goat object
+    if (toupper(c) == 'N')
+    {
+        return;        // Exit the function
+    }
+    else
+    {
+        // Create a counter
+        int i = 1;
+
+        // Iterate thourgh the list and delete the Goat
+        for (auto it = trip.begin(); it != trip.end(); ++it)
+        {
+            if ()
+        }
+    }
+}
+
+/*
+    select_goat()
+    Allow user to select a Goat object from the trip
+    Arguments:
+        - trip: the list of Goat objects (passed by value)
+    Return:
+        - the index of the Goat in the list / trip
+*/
+int select_goat(list<Goat> trip)
+{
     // Create a variable to get the user's choice
-    int choice = 0;
+    int position = 0;
 
     // Display the Goat trip using display_trip()
     display_trip(trip);
 
     // Prompt the user to enter their choice
     cout << " - Please select a Goat: ";
-    cin >> choice;
+    cin >> position;
     cin.ignore(1000, 10);
 
     // Validate user's input
-    while (choice < 1 && choice > trip.size())
+    while (position < 1 && position > trip.size())
     {
-        // 
+        // Display an error message
+        cout << "--- Invalid! Please select a Goat in the list! ---" << endl;
+
+        // Prompt the user to enter the choice again
+        cout << " - Please select a Goat: ";
+        cin >> position;
+        cin.ignore(1000, 10);
     }
+
+    // Return the Goat's position
+    return position;
 }
 
 /*
@@ -160,6 +215,8 @@ void delete_goat(list<Goat> &trip)
 */
 void display_trip(list<Goat> trip)
 {
+    // Display a header
+    cout << "";
     // Create a counter
     int count = 0;
 
