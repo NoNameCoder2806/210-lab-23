@@ -228,7 +228,7 @@ void delete_goat(list<Goat> &trip)
                 trip.erase(it);
 
                 // Display a message
-                cout << "--- Goat number [" << goatChoice << "] deleted! ---" << endl;
+                cout << "--- Goat number [" << goatChoice << "] is deleted! ---" << endl;
                 cout << endl;
 
                 // Exit the function
