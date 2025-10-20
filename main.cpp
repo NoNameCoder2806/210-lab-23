@@ -134,7 +134,21 @@ void add_goat(list<Goat>& trip, string names[], string colors[])
 void delete_goat(list<Goat> &trip)
 {
     // Create a variable to get the user's choice
-    
+    int choice = 0;
+
+    // Display the Goat trip using display_trip()
+    display_trip(trip);
+
+    // Prompt the user to enter their choice
+    cout << " - Please select a Goat: ";
+    cin >> choice;
+    cin.ignore(1000, 10);
+
+    // Validate user's input
+    while (choice < 1 && choice > trip.size())
+    {
+        // 
+    }
 }
 
 /*
@@ -156,6 +170,9 @@ void display_trip(list<Goat> trip)
         cout << "\t[" << count + 1 << "] ";        // The index
         it->print();                               // The print() member function
         cout << endl;                              // Enter a new line
+
+        // Increment the counter
+        count++;
     }
 
     // Enter a new line
