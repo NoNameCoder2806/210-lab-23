@@ -208,18 +208,21 @@ void delete_goat(list<Goat> &trip)
     // If user no longer wants to delete the Goat object
     if (toupper(c) == 'N')
     {
+        // Enter a new line (for formatting purposes)
+        cout << endl;
+
         return;        // Exit the function
     }
     else
     {
         // Create a counter
-        int i = 1;
+        int i = 0;
 
         // Iterate thourgh the list and delete the Goat
         for (auto it = trip.begin(); it != trip.end(); ++it)
         {
             // Compare i with the selected Goat index
-            if (goatChoice == i + 1)
+            if (goatChoice == i + 1)        // If the index matches
             {
                 // Delete the Goat object from the list / trip
                 trip.erase(it);
@@ -230,6 +233,11 @@ void delete_goat(list<Goat> &trip)
 
                 // Exit the function
                 return;
+            }
+            else                            // Otherwise
+            {
+                // Increment the counter
+                i++;
             }
         }
     }
@@ -252,18 +260,18 @@ int select_goat(list<Goat> trip)
     display_trip(trip);
 
     // Prompt the user to enter their choice
-    cout << " - Please select a Goat: ";
+    cout << "- Please select a Goat: ";
     cin >> position;
     cin.ignore(1000, 10);
 
     // Validate user's input
-    while (position < 1 && position > trip.size())
+    while (position < 1 || position > trip.size())
     {
         // Display an error message
         cout << "--- Invalid! Please select a Goat in the list! ---" << endl;
 
         // Prompt the user to enter the choice again
-        cout << " - Please select a Goat: ";
+        cout << "- Please select a Goat: ";
         cin >> position;
         cin.ignore(1000, 10);
     }
@@ -282,7 +290,7 @@ int select_goat(list<Goat> trip)
 void display_trip(list<Goat> trip)
 {
     // Display a header
-    cout << "";
+    cout << "--- Current Goat trip ---" << endl;
     // Create a counter
     int count = 0;
 
@@ -290,9 +298,9 @@ void display_trip(list<Goat> trip)
     for (auto it = trip.begin(); it != trip.end(); ++it)
     {
         // Display the Goat object
-        cout << "\t[" << count + 1 << "] ";        // The index
-        it->print();                               // The print() member function
-        cout << endl;                              // Enter a new line
+        cout << "    [" << count + 1 << "] ";        // The index
+        it->print();                                 // The print() member function
+        cout << endl;                                // Enter a new line
 
         // Increment the counter
         count++;
