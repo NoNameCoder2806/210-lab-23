@@ -10,6 +10,8 @@
 using namespace std;
 
 // Constants
+const int MIN_CHOICE = 1;
+const int MAX_CHOICE = 4;
 const int SIZE_NAMES = 200;
 const int SIZE_COLORS = 25;
 const int MAX_AGE = 20;
@@ -17,11 +19,11 @@ const string NAMES_PATH = "names.txt";
 const string COLORS_PATH = "colors.txt";
 
 // Function prototypes
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
 int main_menu();
+void add_goat(list<Goat> &trip, string [], string []);
+void delete_goat(list<Goat> &trip);
+int select_goat(list<Goat> trip);
+void display_trip(list<Goat> trip);
 
 // Main function
 int main()
@@ -30,8 +32,8 @@ int main()
     srand(time(0));
 
     // Create a bool variable
-    bool again;
-    int i = 0;
+    bool again = true;        // Loop the program
+    int i = 0;                // An int counter
 
     // Create arrays for names and colors
     string names[SIZE_NAMES];
@@ -51,6 +53,50 @@ int main()
     fin1.close();
 
     // Create a loop to run the program
+    while (again)
+    {
+
+    }
 
     return 0;
+}
+
+// Function implementations
+/*
+    main_menu()
+    Display the menu of operations the user can implement on the list
+    Arguments: none
+    Return: user's choice (between 1 and 4)
+*/
+int main_menu()
+{
+    // Declare an int to store user's choice
+    int choice;
+
+    // Display the options for the user
+    cout << "*** Goat Manager 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] List goats" << endl;
+    cout << "[4] Quit" << endl;
+
+    // Let user input their choice and store it in the choice variable
+    cout << "Choice --> ";
+    cin >> choice;
+    cin.ignore(1000, 10);
+
+    // Validate the input
+    while (choice < MIN_CHOICE || choice > MAX_CHOICE)
+    {
+        // Display an error message
+        cout << "--- Invalid! Your choice must be between 1 and 4! ----" << endl;
+
+        // Prompt the user to enter a new choice
+        cout << "New choice --> ";
+        cin >> choice;
+        cin.ignore(1000, 10);
+    }
+
+    // Return the user's choice
+    return choice;
 }
