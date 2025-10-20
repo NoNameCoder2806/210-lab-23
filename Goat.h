@@ -86,7 +86,7 @@ public:
         Arguments:
             - other: the Goat object to compare with
         Return: 
-            - true if this Goat's name is less than the other Goat's name
+            - true if this Goat's name is less than the other Goat's name (alphabetically)
             - false if otherwise
     */
     bool operator<(const Goat& other) const
