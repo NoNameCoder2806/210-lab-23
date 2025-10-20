@@ -100,3 +100,17 @@ int main_menu()
     // Return the user's choice
     return choice;
 }
+
+/*
+*/
+void displayTrip(list<Goat> trip)
+{
+    // Create a counter
+    int count = 0;
+
+    // Iterate through the Goat list
+    for (auto it = trip.begin(); it != trip.end(); ++it)
+    {
+        cout << "    [" << count + 1 << "] " << *it->print() << endl;
+    }
+}

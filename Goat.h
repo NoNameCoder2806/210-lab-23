@@ -80,6 +80,18 @@ public:
     }
 
     // write overloaded < operator for the std::list
+
+    // Member functions
+    /*
+        print()
+        Print the Goat object to the console in a certain format
+        Arguments: none
+        Return: none
+    */
+    void print()
+    {
+        cout << name << " (" << age << ", " << color << ")";
+    }
 };
 
 #endif
