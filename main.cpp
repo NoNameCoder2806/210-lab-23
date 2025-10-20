@@ -50,5 +50,7 @@ int main()
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    // Create a loop to run the program
+
     return 0;
 }

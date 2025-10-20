@@ -13,17 +13,38 @@ using namespace std;
 class Goat
 {
 private:
-    string name;  // Goat's name
-    int age;      // Goat's age
-    string color; // Goat's color
+    string name;                  // Goat's name
+    int age;                      // Goat's age
+    string color;                 // Goat's color
 
 public:
     // Constructors
-    Goat() // Default constructor
+    Goat()                                 // Default constructor
     {
         name = "";
         age = 0;
         color = "";
+    }
+
+    Goat(string n)                         // Constructor with name
+    {
+        name = n;
+        age = 0;
+        color = "";
+    }
+
+    Goat(string n, int a)                  // Constructor with name and age
+    {
+        name = n;
+        age = a;
+        color = "";
+    }
+
+    Goat(string n, int a, string c)        // Constructor with all parameters
+    {
+        name = n;
+        age = a;
+        color = c;
     }
 
     // Accessors / Getters
