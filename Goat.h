@@ -79,7 +79,20 @@ public:
         color = c;
     }
 
-    // write overloaded < operator for the std::list
+    // Operators
+    /*
+        operator<()
+        Overload the < operator to compare two Goat objects based on age
+        Arguments:
+            - other: the Goat object to compare with
+        Return: 
+            - true if this Goat's age is less than the other Goat's age
+            - false if otherwise
+    */
+    bool operator<(const Goat& other) const
+    {
+        return age < other.age;
+    }
 
     // Member functions
     /*

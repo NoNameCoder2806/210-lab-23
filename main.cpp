@@ -112,7 +112,8 @@ int main()
     main_menu()
     Display the menu of operations the user can implement on the list
     Arguments: none
-    Return: user's choice (between 1 and 4)
+    Return: 
+        - the user's operation choice (between 1 and 4)
 */
 int main_menu()
 {
@@ -291,6 +292,7 @@ void display_trip(list<Goat> trip)
 {
     // Display a header
     cout << "--- Current Goat trip ---" << endl;
+    
     // Create a counter
     int count = 0;
 
