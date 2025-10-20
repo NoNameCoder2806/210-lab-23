@@ -20,7 +20,7 @@ const string COLORS_PATH = "colors.txt";
 
 // Function prototypes
 int main_menu();
-void add_goat(list<Goat> &trip, string [], string []);
+void add_goat(list<Goat> &trip, string names [], string colors []);
 void delete_goat(list<Goat> &trip);
 int select_goat(list<Goat> trip);
 void display_trip(list<Goat> trip);
@@ -102,6 +102,11 @@ int main_menu()
 }
 
 /*
+    displayTrip()
+    Display the whole Goat list
+    Arguments: 
+        - trip: the list of Goat objects (passed by value)
+    Return: none
 */
 void displayTrip(list<Goat> trip)
 {
@@ -111,6 +116,12 @@ void displayTrip(list<Goat> trip)
     // Iterate through the Goat list
     for (auto it = trip.begin(); it != trip.end(); ++it)
     {
-        cout << "    [" << count + 1 << "] " << *it->print() << endl;
+        // Display the Goat object
+        cout << "\t[" << count + 1 << "] ";        // The index
+        it->print();                               // The print() member function
+        cout << endl;                              // Enter a new line
     }
+
+    // Enter a new line
+    cout << endl;
 }
