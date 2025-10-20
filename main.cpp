@@ -31,7 +31,10 @@ int main()
     // Call srand() and time() to generate a seed
     srand(time(0));
 
-    // Create a bool variable
+    // Create a Goat list
+    list<Goat> trip;
+
+    // Create some variables
     bool again = true;        // Loop the program
     int i = 0;                // An int counter
 
@@ -53,9 +56,52 @@ int main()
     fin1.close();
 
     // Create a loop to run the program
-    while (again)
+    while (true)
     {
+        // Prompt the user to select the operation
+        int operation = main_menu();
 
+        // Perform the operation
+        switch(operation)
+        {
+            // Add a Goat into the trip
+            case 1: 
+            {
+                // Call add_goat()
+                add_goat(trip, names, colors);
+
+                break;
+            }
+
+            // Delete a Goat from the trip
+            case 2:
+            {
+                // Call delete_goat()
+                delete_goat(trip);
+
+                break;
+            }
+
+            // List the Goat trip
+            case 3:
+            {
+                // Call display_trip()
+                display_trip(trip);
+
+                break;
+            }
+
+            // Exit the program
+            case 4:
+            {
+                // Display a message
+                cout << "Thank you for using the program!" << endl;
+                cout << "--- Exiting... ---" << endl;
+
+                // Exit the main function
+                return 0;
+            }
+        }
     }
 
     return 0;
@@ -122,6 +168,14 @@ void add_goat(list<Goat>& trip, string names[], string colors[])
 
     // Add the Goat object to the trip
     trip.push_front(temp);
+
+    // Display a message
+    cout << "--- Added ";
+    temp.print();
+    cout << " to the Goat trip! ---" << endl;
+
+    // Enter a new line
+    cout << endl;
 }
 
 /*
@@ -134,7 +188,7 @@ void add_goat(list<Goat>& trip, string names[], string colors[])
 void delete_goat(list<Goat> &trip)
 {
     // Create variables to get the user's choices
-    int choice = select_goat(trip);
+    int goatChoice = select_goat(trip);
     char c;
 
     // Display confirmation message
@@ -164,7 +218,19 @@ void delete_goat(list<Goat> &trip)
         // Iterate thourgh the list and delete the Goat
         for (auto it = trip.begin(); it != trip.end(); ++it)
         {
-            if ()
+            // Compare i with the selected Goat index
+            if (goatChoice == i + 1)
+            {
+                // Delete the Goat object from the list / trip
+                trip.erase(it);
+
+                // Display a message
+                cout << "--- Goat number [" << goatChoice << "] deleted! ---" << endl;
+                cout << endl;
+
+                // Exit the function
+                return;
+            }
         }
     }
 }
