@@ -20,7 +20,7 @@ const string COLORS_PATH = "colors.txt";
 
 // Function prototypes
 int main_menu();
-void add_goat(list<Goat> &trip, string names [], string colors []);
+void add_goat(list<Goat> &trip, string names[], string colors[]);
 void delete_goat(list<Goat> &trip);
 int select_goat(list<Goat> trip);
 void display_trip(list<Goat> trip);
@@ -102,13 +102,49 @@ int main_menu()
 }
 
 /*
-    displayTrip()
+    add_goat()
+    Add a Goat object into the Goat list (trip)
+    Arguments:
+        - trip: the list of Goat objects (passed by reference)
+        - names: an array containing all the Goat names (passed by value)
+        - colors: an array containing all the Goat colors (passed by value)
+    Return: none
+*/
+void add_goat(list<Goat>& trip, string names[], string colors[])
+{
+    // Create 3 variables as the Goat object's member variables
+    string n = names[rand() % SIZE_NAMES];
+    string c = colors[rand() % SIZE_COLORS];
+    int a = rand() % (MAX_AGE + 1);
+
+    // Create a temporary Goat object using the parameter Constructor
+    Goat temp(n, a, c);
+
+    // Add the Goat object to the trip
+    trip.push_front(temp);
+}
+
+/*
+    delete_goat()
+    Delete a Goat object from the Goat list (trip)
+    Arguments:
+        - trip: the list of Goat objects (passed by reference)
+    Return: none
+*/
+void delete_goat(list<Goat> &trip)
+{
+    // Create a variable to get the user's choice
+    
+}
+
+/*
+    display_trip()
     Display the whole Goat list
     Arguments: 
         - trip: the list of Goat objects (passed by value)
     Return: none
 */
-void displayTrip(list<Goat> trip)
+void display_trip(list<Goat> trip)
 {
     // Create a counter
     int count = 0;
